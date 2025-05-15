@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="usuario.css">
+    <title>Gerenciamento de Tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/usuario.css">
 </head>
+
 <body>
     <header>
-        <h1>Cadastro de Usuário</h1>
+        <h1>Gerenciamento de Tarefas</h1>
+        <nav>
+            <a href="cadastroUsuario.html">Cadastro de Usuários</a>
+            <a href="cadastroTarefa.html">Cadastro de Tarefas</a>
+            <a href="gerenciar.html">Gerenciar tarefas</a>
+        </nav>
     </header>
     <main>
-        <form id="cadastroUsuario" onsubmit="return cadastrarUsuario()">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" required>
-            <br>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" required>
-            <br>
+        <h1>Cadastro de Usuários</h1>
+        <form id="forms">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome">
+            <label for="email">E-mail</label>
+            <input type="email" id="email">
             <button type="submit">Cadastrar</button>
         </form>
-        <div id="mensagem"></div>
-        <script src="usuarioscript.js"></script>
     </main>
+
+    <script src="js/usuarioscript.js"></script>
 </body>
+
 </html>

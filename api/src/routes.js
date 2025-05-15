@@ -15,5 +15,7 @@ router.get('/tarefas', tarefaController.read);
 router.get('/tarefas/:id', tarefaController.readOne);
 router.put('/tarefas/:id', tarefaController.update);
 router.delete('/tarefas/:id', tarefaController.remove);
+router.patch('/tarefas/:id/prioridade', tarefaController.atualizarPrioridade);
+router.patch('/tarefas/:id/status', tarefaController.atualizarStatus);
 
 module.exports = router;

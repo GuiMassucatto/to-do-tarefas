@@ -15,7 +15,7 @@ const create = async (req, res) => {
 const read = async (req, res) => {
   try {
     const tarefas = await prisma.tarefa.findMany({
-      include: { usuario: true }, 
+      include: { usuario: true },
     });
     return res.status(200).json(tarefas);
   } catch (error) {
@@ -67,4 +67,44 @@ const remove = async (req, res) => {
   }
 };
 
-module.exports = { create, read, readOne, update, remove };
+const atualizarPrioridade = async (req, res) => {
+  try {
+    const tarefa = await prisma.tarefa.update({
+      where: {
+        id: Number(req.params.id),
+      },
+      data: {
+        prioridade: req.body.prioridade.toUpperCase(),
+      },
+    });
+    return res.status(200).json(tarefa);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
+const atualizarStatus = async (req, res) => {
+  try {
+    const tarefa = await prisma.tarefa.update({
+      where: {
+        id: Number(req.params.id),
+      },
+      data: {
+        status: req.body.status.toUpperCase(),
+      },
+    });
+    return res.status(200).json(tarefa);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  create,
+  read,
+  readOne,
+  update,
+  remove,
+  atualizarPrioridade,
+  atualizarStatus
+};
